@@ -1,8 +1,9 @@
 const form = document.querySelector("form");
+const input = document.querySelector("input")
 
 form.addEventListener('submit', function(e) {
   e.preventDefault();
-  console.log(splitWords(e.target.value));
+  console.log(splitWords(input.value));
 })
 
 function splitWords(s) {
