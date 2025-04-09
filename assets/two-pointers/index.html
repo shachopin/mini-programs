@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    
-    
     <title>Hello React!</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="https://glitch.com/favicon.ico" />
   </head>
   <body>
-    <div id="root"></div>
-    welcome to two pointers code
+    <form>
+      <div>
+        <label html-for="name-input">Name</label>
+        <input id="name-input" name="name" type="text" />
+      </div>
+      <div>
+        <label html-for="message-input">Message</label>
+        <textarea
+          id="message-input"
+          name="message"></textarea>
+      </div>
+      <div>
+        <button>Send</button>
+      </div>
+    </form>
+    <script type="module" src="./script.js"></script>
   </body>
 </html>
