@@ -10,7 +10,7 @@ form.addEventListener('submit', function(e) {
         }, body: JSON.stringify({
             "nums": splitWords(input.value)
             })}).then(res => res.json()).then(a => {
-    answer.textContent = JSON.stringify(a)} );
+    answer.textContent = JSON.stringify(a.permutations)} );
 })
 
 function splitWords(s) {
