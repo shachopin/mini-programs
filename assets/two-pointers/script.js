@@ -1,5 +1,6 @@
 const form = document.querySelector("form");
 const input = document.querySelector("input")
+const answer = document.getElementById("ans");
 
 form.addEventListener('submit', function(e) {
   e.preventDefault();
@@ -8,7 +9,8 @@ form.addEventListener('submit', function(e) {
         'Content-Type': 'application/json'
         }, body: JSON.stringify({
             "nums": splitWords(input.value)
-            })}).then(res => res.json()).then(a => console.log(a));
+            })}).then(res => res.json()).then(a => {
+    answer.textContent = JSON.stringify(a)} );
 })
 
 function splitWords(s) {
