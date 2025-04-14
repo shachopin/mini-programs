@@ -37,3 +37,5 @@ const list = [
   "22:30 - 23:00",
 ];
 export default list;
+
+export const colors = ["blue", "red", "green", "orange", "brown", 'black', 'deeppink'];

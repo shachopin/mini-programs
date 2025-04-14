@@ -37,17 +37,20 @@
 
       .item {
         display: inline-block;
-        width: 40px;
+        width: 200px;
         height: 15px;
         border: 2px solid black;
-        border-radius: 8px;
+        /*border-radius: 8px;*/
         margin: 0 8px;
         opacity: 0.999; /* prevents Chrome bug of white edges while dragging */
+        color: white;
+        font-size: small;
+        
       }
 
-      #unranked-section {
+/*       #unranked-section {
         margin-top: 18px;
-      }
+      } */
 
       #blue {
         background-color: blue;
@@ -60,6 +63,19 @@
       #green {
         background-color: green;
       }
+      #orange {
+        background-color: orange;
+      }
+      #brown {
+        background-color: brown;
+      }
+      #black {
+        background-color: black;
+      }
+      #deeppink {
+        background-color: deeppink;
+      }
+
 
       body {
         scrollbar-width: thin;
@@ -105,9 +121,9 @@
       <section class="tier-section" id="unranked-section">
         <h1>Unranked</h1>
         <div class="drop-zone" id="unranked-drop-zone">
-          <div draggable="true" id="blue" class="item"></div>
+          <!--div draggable="true" id="blue" class="item"></div>
           <div draggable="true" id="red" class="item"></div>
-          <div draggable="true" id="green" class="item"></div>
+          <div draggable="true" id="green" class="item"></div-->
         </div>
       </section>
     </div>
