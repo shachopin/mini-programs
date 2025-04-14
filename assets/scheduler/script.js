@@ -13,6 +13,7 @@ wrapper.prepend(fragment);
 const dropzones = document.querySelectorAll(".drop-zone");
 items.forEach(setUpItem);
 dropzones.forEach(setUpDropZone);
+unrankedDropZone.addEventListener("dblclick", onUnrankedDropZoneDoubleClick);
 
 function createSection(item) {
   const section = document.createElement("section");
@@ -52,4 +53,8 @@ function onDrop() {
   if (this !== draggedItem.parentNode) {
     this.appendChild(draggedItem);
   }
+}
+
+function onUnrankedDropZoneDoubleClick() {
+  this.innerHTML += `<div id="blue" class="item"></div>`
 }
