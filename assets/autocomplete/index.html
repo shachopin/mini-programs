@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello React!</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+  </head>
+  <body>
+    <form>
+      <div>
+        <label html-for="name-input">Input</label>
+        <input id="name-input" name="input" type="text" />
+      </div>
+      <div>
+        <label html-for="message-input">Message</label>
+        <textarea
+          id="message-input"
+          name="message"></textarea>
+      </div>
+      <div>
+        <button type="button" id="upload">Upload Words</button>
+      </div>
+    </form>
+    <div>Answer: <span id="ans"></span></div>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
