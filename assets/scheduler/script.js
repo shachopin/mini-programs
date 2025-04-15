@@ -48,6 +48,7 @@ function setUpDropZone(dropzone) {
   dropzone.addEventListener('dragover', onDragOver);
   dropzone.addEventListener('dblclick', onDoubleClickAnyDropZone);
   dropzone.addEventListener('dragstart', onDragItem);
+  dropzone.addEventListener('contextmenu', onContextMenu);
 }
 
 // function setUpUnrankedDropZone(unrankedDropZone) {
@@ -84,3 +85,10 @@ function onDrop() {
   }
 }
 
+function onContextMenu(e) {
+  e.preventDefault();
+  if (e.target === this) {
+    return;
+  }
+  e.target.remove();
+}
