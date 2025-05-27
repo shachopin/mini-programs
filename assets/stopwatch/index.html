@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Expected Output</title>
+    <style>
+      #stopwatch {
+        display: grid;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background-color: grey;
+        color: white;
+        text-align: center;
+        grid-column-gap: 12px;
+        align-content: center;
+        justify-content: center;
+        grid-template-areas:
+          "header header header"
+          "timer timer timer"
+          "start stop reset";
+      }
+
+      h1 {
+        margin: -20px 0 0 0;
+        grid-area: header;
+      }
+
+      button {
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:disabled {
+        cursor: default;
+      }
+
+      #start-button {
+        grid-area: start;
+      }
+
+      #stop-button {
+        grid-area: stop;
+      }
+
+      #reset-button {
+        grid-area: reset;
+      }
+
+      #timer {
+        margin: 12px;
+        font-size: 24px;
+        font-weight: bold;
+        font-family: monospace;
+        grid-area: timer;
+      }
+
+      body {
+        scrollbar-width: thin;
+        scrollbar-color: #bcd transparent;
+      }
+
+      body::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+
+      body::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      body::-webkit-scrollbar-thumb {
+        background: #bcd;
+        border-radius: 3px;
+      }
+
+      body::-webkit-scrollbar-corner {
+        background-color: transparent;
+      }
+    </style>
+
+    <!--script
+      src="data:text/javascript;charset=UTF-8;base64,Ly8gQ29weXJpZ2h0IMKpIDIwMjMgQWxnb0V4cGVydCBMTEMuIEFsbCByaWdodHMgcmVzZXJ2ZWQuCgpsZXQgdGltZXJJRDsKbGV0IGxhc3RUaW1lclN0YXJ0VGltZSA9IDA7CmxldCBtaWxsaXNFbGFwc2VkQmVmb3JlTGFzdFN0YXJ0ID0gMDsKCmNvbnN0IHRpbWVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3RpbWVyJyk7CmNvbnN0IHN0YXJ0QnV0dG9uID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3N0YXJ0LWJ1dHRvbicpOwpjb25zdCBzdG9wQnV0dG9uID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3N0b3AtYnV0dG9uJyk7CmNvbnN0IHJlc2V0QnV0dG9uID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Jlc2V0LWJ1dHRvbicpOwoKc3RhcnRCdXR0b24uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBzdGFydFRpbWVyKTsKc3RvcEJ1dHRvbi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIHN0b3BUaW1lcik7CnJlc2V0QnV0dG9uLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgcmVzZXRUaW1lcik7CgpmdW5jdGlvbiBzdGFydFRpbWVyKCkgewogIHN0YXJ0QnV0dG9uLmRpc2FibGVkID0gdHJ1ZTsKICBzdG9wQnV0dG9uLmRpc2FibGVkID0gZmFsc2U7CiAgcmVzZXRCdXR0b24uZGlzYWJsZWQgPSB0cnVlOwoKICBsYXN0VGltZXJTdGFydFRpbWUgPSBEYXRlLm5vdygpOwoKICB0aW1lcklEID0gcmVxdWVzdEFuaW1hdGlvbkZyYW1lKHVwZGF0ZVRpbWVyKTsKfQoKZnVuY3Rpb24gc3RvcFRpbWVyKCkgewogIHN0YXJ0QnV0dG9uLmRpc2FibGVkID0gZmFsc2U7CiAgc3RvcEJ1dHRvbi5kaXNhYmxlZCA9IHRydWU7CiAgcmVzZXRCdXR0b24uZGlzYWJsZWQgPSBmYWxzZTsKCiAgbWlsbGlzRWxhcHNlZEJlZm9yZUxhc3RTdGFydCArPSBEYXRlLm5vdygpIC0gbGFzdFRpbWVyU3RhcnRUaW1lOwoKICBjYW5jZWxBbmltYXRpb25GcmFtZSh0aW1lcklEKTsKfQoKZnVuY3Rpb24gcmVzZXRUaW1lcigpIHsKICByZXNldEJ1dHRvbi5kaXNhYmxlZCA9IHRydWU7CiAgdGltZXIudGV4dENvbnRlbnQgPSAnMDA6MDA6MDAwJzsKCiAgbWlsbGlzRWxhcHNlZEJlZm9yZUxhc3RTdGFydCA9IDA7Cn0KCmZ1bmN0aW9uIHVwZGF0ZVRpbWVyKCkgewogIGNvbnN0IG1pbGxpc0VsYXBzZWQgPSBEYXRlLm5vdygpIC0gbGFzdFRpbWVyU3RhcnRUaW1lICsgbWlsbGlzRWxhcHNlZEJlZm9yZUxhc3RTdGFydDsKICBjb25zdCBzZWNvbmRzRWxhcHNlZCA9IG1pbGxpc0VsYXBzZWQgLyAxMDAwOwogIGNvbnN0IG1pbnV0ZXNFbGFwc2VkID0gc2Vjb25kc0VsYXBzZWQgLyA2MDsKCiAgY29uc3QgbWlsbGlzVGV4dCA9IGZvcm1hdE51bWJlcihtaWxsaXNFbGFwc2VkICUgMTAwMCwgMyk7CiAgY29uc3Qgc2Vjb25kc1RleHQgPSBmb3JtYXROdW1iZXIoTWF0aC5mbG9vcihzZWNvbmRzRWxhcHNlZCkgJSA2MCwgMik7CiAgY29uc3QgbWludXRlc1RleHQgPSBmb3JtYXROdW1iZXIoTWF0aC5mbG9vcihtaW51dGVzRWxhcHNlZCksIDIpOwoKICB0aW1lci50ZXh0Q29udGVudCA9IGAke21pbnV0ZXNUZXh0fToke3NlY29uZHNUZXh0fToke21pbGxpc1RleHR9YDsKCiAgdGltZXJJRCA9IHJlcXVlc3RBbmltYXRpb25GcmFtZSh1cGRhdGVUaW1lcik7Cn0KCmZ1bmN0aW9uIGZvcm1hdE51bWJlcihudW1iZXIsIGRlc2lyZWRMZW5ndGgpIHsKICBjb25zdCBzdHJpbmdOdW1iZXIgPSBTdHJpbmcobnVtYmVyKTsKICByZXR1cm4gc3RyaW5nTnVtYmVyLnBhZFN0YXJ0KGRlc2lyZWRMZW5ndGgsICcwJyk7Cn0="
+      defer=""
+    ></script-->
+    <script type="module" src="./script.js" defer></script>
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1237.0" data-gr-ext-installed="">
+    <div id="stopwatch">
+      <h1>Stopwatch</h1>
+      <div id="timer" role="timer">00:00:000</div>
+      <button id="start-button">Start</button>
+      <button id="stop-button" disabled="">Stop</button>
+      <button id="reset-button" disabled="">Reset</button>
+    </div>
+  </body>
+  <grammarly-desktop-integration
+    data-grammarly-shadow-root="true"
+  ></grammarly-desktop-integration>
+</html>
