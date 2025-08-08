@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Router, Link } from "wouter";
 import Wordle from "./components/wordle";
-import CountDown from './components/countdown';
-import UseInterval from './components/useInterval';
-import QuestionList  from "./components/CategoryAndQuestions";
-import ProgressBar from "./components/ProgressBar"
+// import CountDown from './components/countdown';
+// import UseInterval from './components/useInterval';
+// import QuestionList  from "./components/CategoryAndQuestions";
+// import ProgressBar from "./components/ProgressBar"
+// comment out other imports here to avoid css pollutions!
 
 /**
 * This code defines the react app
@@ -28,6 +29,6 @@ import Seo from './components/seo.jsx';
 // Home function that is reflected across the site
 export default function Home() {
   return (
-    <ProgressBar/>
+    <Wordle/>
   );
 }
