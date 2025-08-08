@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import "./style.css";
 
 const WORD_LIST_API_URL = 'https://api.frontendexpert.io/api/fe/wordle-words';
 const NUM_OF_GUESSES = 6;
@@ -14,12 +15,12 @@ export default function Wordle() {
   
   useEffect(() => {
     async function fetchSolution() {
-      // const res = await fetch(WORD_LIST_API_URL);
-      // const solutions = await res.json(); // you always forget await
-      // const solution = solutions[Math.floor(Math.random() * solutions.length)].toLowerCase();
-      // setSolution(solution);
-      // cors issue from this api
-      setSolution('happy');
+      const res = await fetch(WORD_LIST_API_URL);
+      const solutions = await res.json(); // you always forget await
+      const solution = solutions[Math.floor(Math.random() * solutions.length)].toLowerCase();
+      setSolution(solution);
+      //cors issue from this api, but you know to use the chrome extension to byPass it
+      //setSolution('happy');
     }
     
     fetchSolution();
