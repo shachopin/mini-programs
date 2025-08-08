@@ -3,7 +3,8 @@ import { Router, Link } from "wouter";
 import Wordle from "./components/wordle";
 import CountDown from './components/countdown';
 import UseInterval from './components/useInterval';
-import QuestionList  from "./components/CategoryAndQuestions/index.jsx";
+import QuestionList  from "./components/CategoryAndQuestions";
+import ProgressBar from "./components/ProgressBar"
 
 /**
 * This code defines the react app
@@ -27,6 +28,6 @@ import Seo from './components/seo.jsx';
 // Home function that is reflected across the site
 export default function Home() {
   return (
-    <Wordle/>
+    <ProgressBar/>
   );
 }
