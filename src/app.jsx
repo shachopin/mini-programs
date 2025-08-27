@@ -4,7 +4,8 @@ import { Router, Link } from "wouter";
 // import CountDown from './components/countdown';
 // import UseInterval from './components/useInterval';
 // import QuestionList  from "./components/CategoryAndQuestions";
-import ProgressBar from "./components/ProgressBar"
+// import ProgressBar from "./components/ProgressBar"
+import ConnectFour from "./components/connectFour"
 // comment out other imports here to avoid css pollutions!
 
 /**
@@ -29,6 +30,6 @@ import Seo from './components/seo.jsx';
 // Home function that is reflected across the site
 export default function Home() {
   return (
-    <ProgressBar/>
+    <ConnectFour/>
   );
 }
