@@ -19,7 +19,7 @@ export default function App() {
     return () => {
       clearInterval(timeId);
     };
-  }, []); //because you have no external variable reference, so you put nothing in depend array and use setInterval no problem
+  }, []); //because the callback fun has no external variable reference, so you put nothing in depend array and use setInterval no problem
   return <ProgressBar progress={progress} />;
 }
 
