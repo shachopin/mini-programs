@@ -5,18 +5,34 @@ const useInterval = (callback, delay) => {
   React.useEffect(() => {
     savedCallback.current = callback;
   }, [callback]);
+
   React.useEffect(() => {
     const tick = () => {
       savedCallback.current();
     }
     if (delay !== null) {
-      let id = setInterval(tick, delay);
+      let id = setInterval(tick, delay); //although tick never changed, always old fun, but inside savedCallback.current is a new fun each time to run
       return () => {
         console.log("remove interval")
         clearInterval(id);
       }
     }
-  }, []);
+  }, []);  //working
+
+
+  // const savedCallback = React.useRef();
+  // React.useEffect(() => {
+  //   savedCallback.current = callback;
+  // }, [callback]);
+  // React.useEffect(() => {
+  //   if (delay !== null) {
+  //     let id = setInterval(savedCallback.current, delay); //still oldest fun never changed
+  //     return () => {
+  //       console.log("remove interval")
+  //       clearInterval(id);
+  //     }
+  //   }
+  // }, []); //not working
   
   // const savedCallback = React.useRef(callback);
   // React.useEffect(() => {
