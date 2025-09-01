@@ -7,7 +7,8 @@ import { Router, Link } from "wouter";
 // import ProgressBar from "./components/ProgressBar"
 // import ConnectFour from "./components/connectFour"
 // import AutoComplete from "./components/autoComplete"
-import InfiniteScroll from './components/infiniteScroll'
+// import InfiniteScroll from './components/infiniteScroll'
+import Timer from './components/useInterval'
 // comment out other imports here to avoid css pollutions!
 
 /**
@@ -32,6 +33,6 @@ import Seo from './components/seo.jsx';
 // Home function that is reflected across the site
 export default function Home() {
   return (
-    <InfiniteScroll/>
+    <Timer/>
   );
 }

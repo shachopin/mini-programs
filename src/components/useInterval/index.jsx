@@ -31,7 +31,7 @@ const useInterval = (callback, delay) => {
   //   }
   //   let id = setInterval(tick, delay);
   //   return () => clearInterval(id);
-  // }, []); //working
+  // }, []); //not working
 };
 
 const Timer = props => {
