@@ -8,7 +8,8 @@ import { Router, Link } from "wouter";
 // import ConnectFour from "./components/connectFour"
 // import AutoComplete from "./components/autoComplete"
 // import InfiniteScroll from './components/infiniteScroll'
-import Timer from './components/useInterval'
+//import Timer from './components/useInterval'
+import Memory from './components/memory'
 // comment out other imports here to avoid css pollutions!
 
 /**
@@ -33,6 +34,6 @@ import Seo from './components/seo.jsx';
 // Home function that is reflected across the site
 export default function Home() {
   return (
-    <Timer/>
+    <Memory/>
   );
 }
