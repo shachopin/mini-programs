@@ -13,7 +13,7 @@ export default function App() {
     const data = await response.json();
     setIsLoading(false);
     page.current += 1;
-    setCats((prevData) => [...prevData, ...data.data]);
+    setCats((prevData) => [...prevData, ...data.data]);//...data.data,...data.data,...data.data
   };
   const observer = useRef(); //以下是老师的做法
   const lastAnchor = useCallback(
@@ -59,7 +59,7 @@ export default function App() {
   //     });
   //     observer.current.observe(node);
   //   },
-  //   [] //以上是我的做法，从头到外fun只运行了一次，数据量少的时候，loader显示进入vieport后也不动了
+  //   [] //以上是我的做法，从头到外fun只运行了一次，数据量少的时候，loader显示进入vieport后也不动了.数据量多的时候，loader会到viewport以外，然后每拉一次send one request
   // );
   return (
     <div className="App">
