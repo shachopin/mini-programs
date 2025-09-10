@@ -15,24 +15,24 @@ export default function App() {
     page.current += 1;
     setCats((prevData) => [...prevData, ...data.data]);
   };
-  const observer = useRef();
+  const observer = useRef(); //以下是老师的做法
   const lastAnchor = useCallback(
     (node) => {
       console.log('dawei node', node)
       console.log('dawei isLoading', isLoading)
       /*
       dawei node null
-index.jsx:22 dawei isLoading false <=== before [dep] changes
-index.jsx:21 dawei node <div class=​"spinner">​…​</div>​flex
-index.jsx:22 dawei isLoading true
+      index.jsx:22 dawei isLoading false <=== before [dep] changes
+      index.jsx:21 dawei node <div class=​"spinner">​…​</div>​flex
+      index.jsx:22 dawei isLoading true
 
 
-dawei node null
-index.jsx:22 dawei isLoading true
-index.jsx:21 dawei node <div class=​"spinner">​…​</div>​flex
-index.jsx:22 dawei isLoading false
+      dawei node null
+      index.jsx:22 dawei isLoading true
+      index.jsx:21 dawei node <div class=​"spinner">​…​</div>​flex
+      index.jsx:22 dawei isLoading false
 
-*/
+      */
       if (!node || isLoading) return;
     
       if (observer.current) observer.current.disconnect();
@@ -43,14 +43,30 @@ index.jsx:22 dawei isLoading false
       });
       observer.current.observe(node);
     },
-    [isLoading]
+    [isLoading]  //以上是老师的做法，好处是每次isLoading变化，我都disconnect and observe一次，一个page的数据量少，多invoke几次，直至loader在viewport边际外
   );
+  // const observer = useRef();
+  // const lastAnchor = useCallback(
+  //   (node) => {
+  //     console.log('dawei node', node)
+  //     console.log('dawei isLoading', isLoading)
+    
+  //     if (observer.current) {console.log('haha'); observer.current.disconnect()};
+  //     observer.current = new IntersectionObserver((entries) => {
+  //       if (entries[0].isIntersecting) {
+  //         fetchCats();
+  //       }
+  //     });
+  //     observer.current.observe(node);
+  //   },
+  //   [] //以上是我的做法，从头到外fun只运行了一次，数据量少的时候，loader显示进入vieport后也不动了
+  // );
   return (
     <div className="App">
       <div>
-        {cats.map((cat) => (
+        {cats.map((cat, i) => (
           <img
-            key={cat.id}
+            key={i}
             src={cat?.thumbnail?.lqip}
             height="150"
             width="150"
