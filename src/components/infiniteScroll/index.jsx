@@ -50,7 +50,7 @@ export default function App() {
   //   (node) => {
   //     console.log('dawei node', node)
   //     console.log('dawei isLoading', isLoading)
-    
+         //below is typical way of removing listener when dom unmounted or changed dependency array, (therefor we need a useRef for that)
   //     if (observer.current) {console.log('haha'); observer.current.disconnect()};
   //     observer.current = new IntersectionObserver((entries) => {
   //       if (entries[0].isIntersecting) {
